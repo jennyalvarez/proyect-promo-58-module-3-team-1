@@ -13,7 +13,7 @@
     "node-sass": "^9.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "sass": "^1.94.0"
+    "sass": "^1.94.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
