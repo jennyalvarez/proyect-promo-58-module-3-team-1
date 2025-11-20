@@ -13,8 +13,66 @@ function App() {
   const [desc, setDesc] = useState();
   const [autor, setAutor] = useState();
   const [job, setJob] = useState();
-  const [projectImage, setProjectImage] = useState();
-  const [autorPhoto, setAutorPhoto] = useState();
+
+  const [projectImage, setProjectImage] = useState(null);
+  const [autorPhoto, setAutorPhoto] = useState(null);
+
+  function handleNameProject(ev) {
+    ev.preventDefault();
+    setNameProject(ev.target.value);
+  }
+  function handleSlogan(ev) {
+    ev.preventDefault();
+    setSlogan(ev.target.value);
+  }
+  function handleTechnologies(ev) {
+    ev.preventDefault();
+    setTechnologies(ev.target.value);
+  }
+  function handleRepo(ev) {
+    ev.preventDefault();
+    setRepo(ev.target.value);
+  }
+  function handleDemo(ev) {
+    ev.preventDefault();
+    setDemo(ev.target.value);
+  }
+  function handleDesc(ev) {
+    ev.preventDefault();
+    setDesc(ev.target.value);
+  }
+  function handleAutor(ev) {
+    ev.preventDefault();
+    setAutor(ev.target.value);
+  }
+  function handleJob(ev) {
+    ev.preventDefault();
+    setJob(ev.target.value);
+  }
+  function handleProjectImage(ev) {
+    ev.preventDefault();
+    if (ev.target.files && ev.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        setAutorPhoto(e.target.result);
+      };
+
+      reader.readAsDataURL(ev.target.files[0]);
+    }
+  }
+  function handleAutorPhoto(ev) {
+    ev.preventDefault();
+    if (ev.target.files && ev.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        setProjectImage(e.target.result);
+      };
+
+      reader.readAsDataURL(ev.target.files[0]);
+    }
+  }
 
   return (
     <div className="container">
@@ -94,6 +152,7 @@ function App() {
               Cuéntanos sobre el proyecto
             </legend>
             <input
+              onChange={handleNameProject}
               className="addForm__input"
               type="text"
               name="name"
@@ -101,6 +160,7 @@ function App() {
               placeholder="Nombre del proyecto"
             />
             <input
+              onChange={handleSlogan}
               className="addForm__input"
               type="text"
               name="slogan"
@@ -109,6 +169,7 @@ function App() {
             />
             <div className="addForm__2col">
               <input
+                onChange={handleRepo}
                 className="addForm__input"
                 type="url"
                 name="repo"
@@ -116,6 +177,7 @@ function App() {
                 placeholder="Repositorio"
               />
               <input
+                onChange={handleDemo}
                 className="addForm__input"
                 type="url"
                 name="demo"
@@ -124,6 +186,7 @@ function App() {
               />
             </div>
             <input
+              onChange={handleTechnologies}
               className="addForm__input"
               type="text"
               name="technologies"
@@ -131,6 +194,7 @@ function App() {
               placeholder="Tecnologías"
             />
             <textarea
+              onChange={handleDesc}
               className="addForm__input"
               type="text"
               name="desc"
@@ -145,6 +209,7 @@ function App() {
               Cuéntanos sobre la autora
             </legend>
             <input
+              onChange={handleAutor}
               className="addForm__input"
               type="text"
               name="autor"
@@ -152,6 +217,7 @@ function App() {
               placeholder="Nombre"
             />
             <input
+              onChange={handleJob}
               className="addForm__input"
               type="text"
               name="job"
@@ -163,11 +229,19 @@ function App() {
           <fieldset className="addForm__group--upload">
             <label className="button">
               Subir foto del proyecto
-              <input className="addForm__hidden" type="file" />
+              <input
+                onChange={handleProjectImage}
+                className="addForm__hidden"
+                type="file"
+              />
             </label>
             <label className="button">
               Subir foto de la autora
-              <input className="addForm__hidden" type="file" />
+              <input
+                onChange={handleAutorPhoto}
+                className="addForm__hidden"
+                type="file"
+              />
             </label>
             <button className="button--large">Guardar proyecto</button>
           </fieldset>
