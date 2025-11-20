@@ -55,7 +55,7 @@ function App() {
       const reader = new FileReader();
 
       reader.onload = (e) => {
-        setAutorPhoto(e.target.result);
+        setProjectImage(e.target.result);
       };
 
       reader.readAsDataURL(ev.target.files[0]);
@@ -67,7 +67,7 @@ function App() {
       const reader = new FileReader();
 
       reader.onload = (e) => {
-        setProjectImage(e.target.result);
+        setAutorPhoto(e.target.result);
       };
 
       reader.readAsDataURL(ev.target.files[0]);
