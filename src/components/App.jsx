@@ -5,6 +5,9 @@ import Header from "./Header.jsx";
 import Footer from "./Footer.jsx";
 import Hero from "./Hero.jsx";
 
+import "../styles/Form.scss";
+import "../styles/Preview.scss"
+
 function App() {
   const [data, setData] = useState({
     name: "",
@@ -23,9 +26,7 @@ function App() {
   function handleData(ev) {
     ev.preventDefault();
     const property = ev.target.id;
-    console.log("id", property);
     const value = ev.target.value;
-    console.log("valor", value);
     setData({
       ...data,
       [property]: value,
