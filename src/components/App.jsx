@@ -103,18 +103,18 @@ function App() {
 
             <div className="card__author">
               <div className="card__authorPhoto">{data.photo}</div>
-              <p className="card__job">{data.job}</p>
-              <h3 className="card__name">{data.autor}</h3>
+              <p className="card__job">{data.job === "" ? "Monologuista" : data.job}</p>
+              <h3 className="card__name">{data.autor === "" ? "Tomasa" : data.autor}</h3>
             </div>
 
             <div className="card__project">
-              <h3 className="card__name">{data.name}</h3>
-              <p className="card__slogan">{data.slogan}</p>
+              <h3 className="card__name">{data.name === "" ? "Proyect Tomasa" : data.name}</h3>
+              <p className="card__slogan">{data.slogan === "" ? "Los chistes de Tomasa" : data.slogan}</p>
               <h3 className="card__descriptionTitle">Product Description</h3>
-              <p className="card__description">{data.desc}</p>
+              <p className="card__description">{data.desc === "" ? "Tomasa es esa leyenda urbana capaz de convertir cualquier sitio en una verbena improvisada. Entra en una habitación y automáticamente sube el volumen de la vida: ni Spotify tiene tanta presencia. Lleva el “modo drama-comedia” activado de fábrica, y cuando intenta ser seria, dura menos que un helado en agosto. Eso sí, cuando Tomasa dice “solo un ratito”, prepárate, porque ese ratito tiene la misma duración que una serie de 8 temporadas." : data.desc}</p>
 
               <div className="card__technicalInfo">
-                <p className="card__technologies">{data.technologies}</p>
+                <p className="card__technologies">{data.technologies === "" ? "HTML, CSS, JS y React" : data.technologies}</p>
 
                 <a
                   className="icon icon__www"
