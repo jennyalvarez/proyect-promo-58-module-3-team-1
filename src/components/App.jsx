@@ -5,69 +5,58 @@ import adalabLogo from "../images/adalab.png";
 import { useState } from "react";
 
 function App() {
-  const [nameProject, setNameProject] = useState();
-  const [slogan, setSlogan] = useState();
-  const [technologies, setTechnologies] = useState();
-  const [repo, setRepo] = useState();
-  const [demo, setDemo] = useState();
-  const [desc, setDesc] = useState();
-  const [autor, setAutor] = useState();
-  const [job, setJob] = useState();
+  const [data, setData] = useState({
+    name: "",
+    slogan: "",
+    technologies: "",
+    repo: "",
+    demo: "",
+    desc: "",
+    autor: "",
+    job: "",
+    image: null,
+    photo: null,
+  });
 
-  const [projectImage, setProjectImage] = useState(null);
-  const [autorPhoto, setAutorPhoto] = useState(null);
 
-  function handleNameProject(ev) {
+  function handleData(ev) {
     ev.preventDefault();
-    setNameProject(ev.target.value);
+    const property = ev.target.id;
+    console.log("id", property);
+    const value = ev.target.value;
+    console.log("valor", value);
+    setData({
+      ...data,
+      [property]: value,
+    });
   }
-  function handleSlogan(ev) {
-    ev.preventDefault();
-    setSlogan(ev.target.value);
-  }
-  function handleTechnologies(ev) {
-    ev.preventDefault();
-    setTechnologies(ev.target.value);
-  }
-  function handleRepo(ev) {
-    ev.preventDefault();
-    setRepo(ev.target.value);
-  }
-  function handleDemo(ev) {
-    ev.preventDefault();
-    setDemo(ev.target.value);
-  }
-  function handleDesc(ev) {
-    ev.preventDefault();
-    setDesc(ev.target.value);
-  }
-  function handleAutor(ev) {
-    ev.preventDefault();
-    setAutor(ev.target.value);
-  }
-  function handleJob(ev) {
-    ev.preventDefault();
-    setJob(ev.target.value);
-  }
-  function handleProjectImage(ev) {
+
+  function handlePhoto(ev) {
     ev.preventDefault();
     if (ev.target.files && ev.target.files[0]) {
       const reader = new FileReader();
 
       reader.onload = (e) => {
-        setAutorPhoto(e.target.result);
+        setData({
+          ...data,
+          photo: e.target.result,
+        });
       };
 
       reader.readAsDataURL(ev.target.files[0]);
     }
   }
-  function handleAutorPhoto(ev) {
+
+  function handleImage(ev) {
     ev.preventDefault();
     if (ev.target.files && ev.target.files[0]) {
       const reader = new FileReader();
 
       reader.onload = (e) => {
-        setProjectImage(e.target.result);
+        setData({
+          ...data,
+          image: e.target.result,
+        });
       };
 
       reader.readAsDataURL(ev.target.files[0]);
@@ -104,7 +93,7 @@ function App() {
         </section>
 
         <section className="preview">
-          <div className="projectImage">{projectImage}</div>
+          <div className="projectImage">{data.image}</div>
           <article className="card">
             <h2 className="card__projectTitle">
               <span className="card__projectTitle--text">
@@ -113,30 +102,30 @@ function App() {
             </h2>
 
             <div className="card__author">
-              <div className="card__authorPhoto">{autorPhoto}</div>
-              <p className="card__job">{job}</p>
-              <h3 className="card__name">{autor}</h3>
+              <div className="card__authorPhoto">{data.photo}</div>
+              <p className="card__job">{data.job}</p>
+              <h3 className="card__name">{data.autor}</h3>
             </div>
 
             <div className="card__project">
-              <h3 className="card__name">{nameProject}</h3>
-              <p className="card__slogan">{slogan}</p>
+              <h3 className="card__name">{data.name}</h3>
+              <p className="card__slogan">{data.slogan}</p>
               <h3 className="card__descriptionTitle">Product Description</h3>
-              <p className="card__description">{desc}</p>
+              <p className="card__description">{data.desc}</p>
 
               <div className="card__technicalInfo">
-                <p className="card__technologies">{technologies}</p>
+                <p className="card__technologies">{data.technologies}</p>
 
                 <a
                   className="icon icon__www"
-                  href={demo}
+                  href={data.demo}
                   title="Haz click para ver el proyecto online"
                 >
                   Web link
                 </a>
                 <a
                   className="icon icon__github"
-                  href={repo}
+                  href={data.repo}
                   title="Haz click para ver el código del proyecto"
                 >
                   GitHub link
@@ -145,14 +134,14 @@ function App() {
             </div>
           </article>
         </section>
-        <form className="addForm">
+        <form className="addForm" onChange={handleData}>
           <h2 className="title">Información</h2>
           <fieldset className="addForm__group">
             <legend className="addForm__title">
               Cuéntanos sobre el proyecto
             </legend>
             <input
-              onChange={handleNameProject}
+
               className="addForm__input"
               type="text"
               name="name"
@@ -160,7 +149,7 @@ function App() {
               placeholder="Nombre del proyecto"
             />
             <input
-              onChange={handleSlogan}
+
               className="addForm__input"
               type="text"
               name="slogan"
@@ -169,7 +158,7 @@ function App() {
             />
             <div className="addForm__2col">
               <input
-                onChange={handleRepo}
+
                 className="addForm__input"
                 type="url"
                 name="repo"
@@ -177,7 +166,7 @@ function App() {
                 placeholder="Repositorio"
               />
               <input
-                onChange={handleDemo}
+
                 className="addForm__input"
                 type="url"
                 name="demo"
@@ -186,7 +175,7 @@ function App() {
               />
             </div>
             <input
-              onChange={handleTechnologies}
+
               className="addForm__input"
               type="text"
               name="technologies"
@@ -194,7 +183,7 @@ function App() {
               placeholder="Tecnologías"
             />
             <textarea
-              onChange={handleDesc}
+
               className="addForm__input"
               type="text"
               name="desc"
@@ -209,7 +198,7 @@ function App() {
               Cuéntanos sobre la autora
             </legend>
             <input
-              onChange={handleAutor}
+
               className="addForm__input"
               type="text"
               name="autor"
@@ -217,7 +206,7 @@ function App() {
               placeholder="Nombre"
             />
             <input
-              onChange={handleJob}
+
               className="addForm__input"
               type="text"
               name="job"
@@ -230,7 +219,7 @@ function App() {
             <label className="button">
               Subir foto del proyecto
               <input
-                onChange={handleProjectImage}
+                onChange={handlePhoto}
                 className="addForm__hidden"
                 type="file"
               />
@@ -238,7 +227,7 @@ function App() {
             <label className="button">
               Subir foto de la autora
               <input
-                onChange={handleAutorPhoto}
+                onChange={handleImage}
                 className="addForm__hidden"
                 type="file"
               />
