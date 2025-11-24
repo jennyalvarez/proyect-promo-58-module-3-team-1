@@ -26,6 +26,8 @@ function App() {
       ...data,
       [property]: value,
     });
+    console.log([property], value);
+    
   }
   /*
   function handlePhoto(ev) {
