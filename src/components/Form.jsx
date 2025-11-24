@@ -1,3 +1,5 @@
+import "../styles/Form.scss";
+
 function Form({ changeData }) {
   function handleData(ev) {
     ev.preventDefault();

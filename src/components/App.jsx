@@ -7,9 +7,6 @@ import Hero from "./Hero.jsx";
 import Preview from "./Preview.jsx";
 import Form from "./Form.jsx";
 
-import "../styles/Form.scss";
-import "../styles/Preview.scss";
-
 function App() {
   const [data, setData] = useState({
     name: "",

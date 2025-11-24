@@ -1,3 +1,5 @@
+import "../styles/Preview.scss";
+
 function Preview ({data}) {
 
   return (
