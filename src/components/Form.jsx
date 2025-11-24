@@ -1,4 +1,10 @@
-function Form() {
+function Form({ changeData }) {
+  function handleData(ev) {
+    ev.preventDefault();
+    const property = ev.target.id;
+    const value = ev.target.value;
+    changeData(property, value);
+  }
   return (
     <form className="addForm" onChange={handleData}>
       <h2 className="title">Información</h2>
@@ -73,7 +79,7 @@ function Form() {
         <label className="button">
           Subir foto del proyecto
           <input
-            onChange={handlePhoto}
+            // onChange={handlePhoto}
             className="addForm__hidden"
             type="file"
           />
@@ -81,7 +87,7 @@ function Form() {
         <label className="button">
           Subir foto de la autora
           <input
-            onChange={handleImage}
+            //  onChange={handleImage}
             className="addForm__hidden"
             type="file"
           />

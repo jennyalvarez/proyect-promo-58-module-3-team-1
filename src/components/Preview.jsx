@@ -1,4 +1,4 @@
-function Preview () {
+function Preview ({data}) {
 
   return (
 
