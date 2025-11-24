@@ -1,5 +1,7 @@
 import "../../styles/Form.scss";
 import InputGroupText from "./InputGroupText";
+import ButtonsGroup from "./ButtonsGroup";
+
 
 function Form({ changeData }) {
   function handleData(ev) {
@@ -50,22 +52,14 @@ function Form({ changeData }) {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <label className="button">
-          Subir foto del proyecto
-          <input
-            // onChange={handlePhoto}
-            className="addForm__hidden"
-            type="file"
-          />
-        </label>
-        <label className="button">
-          Subir foto de la autora
-          <input
-            //  onChange={handleImage}
-            className="addForm__hidden"
-            type="file"
-          />
-        </label>
+      <ButtonsGroup
+        labelText = "Subir foto del proyecto"
+        // onChange={handlePhoto}
+      />
+      <ButtonsGroup
+        labelText = "Subir foto de la autora"
+         //  onChange={handleImage}
+      />
         <button className="button--large">Guardar proyecto</button>
       </fieldset>
     </form>
