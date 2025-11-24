@@ -1,4 +1,4 @@
-import "../styles/Hero.scss";
+import "../../styles/Hero.scss";
 function Hero() {
   return (
     <section className="hero">

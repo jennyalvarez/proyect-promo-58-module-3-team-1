@@ -1,6 +1,6 @@
-import logo from "../images/laptop-code-solid.svg";
-import adalabLogo from "../images/adalab.png";
-import "../styles/Header.scss";
+import logo from "../../images/laptop-code-solid.svg";
+import adalabLogo from "../../images/adalab.png";
+import "../../styles/Header.scss";
 function Header() {
   return (
     <header className="header">

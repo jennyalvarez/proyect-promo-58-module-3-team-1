@@ -1,4 +1,4 @@
-import "../styles/Form.scss";
+import "../../styles/Form.scss";
 import InputGroupText from "./InputGroupText";
 
 function Form({ changeData }) {

@@ -1,11 +1,11 @@
 // Fichero src/components/App.jsx
 import "../styles/App.scss";
 import { useState } from "react";
-import Header from "./Header.jsx";
-import Footer from "./Footer.jsx";
-import Hero from "./Hero.jsx";
-import Preview from "./Preview.jsx";
-import Form from "./Form.jsx";
+import Header from "./Layout/Header.jsx";
+import Footer from "./Layout/Footer.jsx";
+import Hero from "./Layout/Hero.jsx";
+import Preview from "./Create/Preview.jsx";
+import Form from "./Create/Form.jsx";
 
 function App() {
   const [data, setData] = useState({
