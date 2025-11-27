@@ -1,9 +1,9 @@
 import "../../styles/Form.scss";
+import GetAvatar from "./GetAvatar";
 import InputGroupText from "./InputGroupText";
-import ButtonsGroup from "./ButtonsGroup";
 
 
-function Form({ changeData }) {
+function Form({ changeData, data }) {
   function handleData(ev) {
     ev.preventDefault();
     const property = ev.target.id;
@@ -52,14 +52,9 @@ function Form({ changeData }) {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-      <ButtonsGroup
-        labelText = "Subir foto del proyecto"
-        // onChange={handlePhoto}
-      />
-      <ButtonsGroup
-        labelText = "Subir foto de la autora"
-         //  onChange={handleImage}
-      />
+        <GetAvatar changeData={changeData} text="Subir foto del proyecto" idImages = "image"/>
+        <GetAvatar changeData={changeData} text="Subir foto de la autora" idImages = "photo" />
+
         <button className="button--large">Guardar proyecto</button>
       </fieldset>
     </form>

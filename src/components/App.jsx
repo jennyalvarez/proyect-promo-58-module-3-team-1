@@ -17,8 +17,8 @@ function App() {
     desc: "",
     autor: "",
     job: "",
-    image: null,
-    photo: null,
+    image: null, // Imagen de la Autora
+    photo: null, // Imagen del proyecto
   });
 
   function changeData(property, value) {
@@ -27,41 +27,8 @@ function App() {
       [property]: value,
     });
     console.log([property], value);
-    
   }
-  /*
-  function handlePhoto(ev) {
-    ev.preventDefault();
-    if (ev.target.files && ev.target.files[0]) {
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        setData({
-          ...data,
-          photo: e.target.result,
-        });
-      };
-
-      reader.readAsDataURL(ev.target.files[0]);
-    }
-  }
-
-  function handleImage(ev) {
-    ev.preventDefault();
-    if (ev.target.files && ev.target.files[0]) {
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        setData({
-          ...data,
-          image: e.target.result,
-        });
-      };
-
-      reader.readAsDataURL(ev.target.files[0]);
-    }
-  }
-*/
+ 
   return (
     <div className="container">
       <Header />
@@ -71,7 +38,7 @@ function App() {
 
         <Preview data={data} />
 
-        <Form changeData={changeData} />
+        <Form changeData={changeData} data= {data} />
       </main>
 
       <Footer />
