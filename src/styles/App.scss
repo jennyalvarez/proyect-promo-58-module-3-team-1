@@ -60,6 +60,10 @@ fieldset {
 .container {
   padding: 22px 22px 0 22px;
   background-color: var(--color-dark);
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
 }
 
 @media screen and (min-width: 768px) {
@@ -71,7 +75,6 @@ fieldset {
     gap: 2rem;
   }
 }
-
 
 /* COMPONENTS */
 
