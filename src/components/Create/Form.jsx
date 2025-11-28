@@ -1,7 +1,7 @@
 import "../../styles/Form.scss";
 import GetAvatar from "./GetAvatar";
 import InputGroupText from "./InputGroupText";
-
+import { useEffect } from "react";
 
 function Form({ changeData, data }) {
   function handleData(ev) {
@@ -10,6 +10,10 @@ function Form({ changeData, data }) {
     const value = ev.target.value;
     changeData(property, value);
   }
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(data));
+  }, [data]);
+
   return (
     <form className="addForm" onChange={handleData}>
       <h2 className="title">Información</h2>
@@ -52,8 +56,16 @@ function Form({ changeData, data }) {
       </fieldset>
 
       <fieldset className="addForm__group--upload">
-        <GetAvatar changeData={changeData} text="Subir foto del proyecto" idImages = "image"/>
-        <GetAvatar changeData={changeData} text="Subir foto de la autora" idImages = "photo" />
+        <GetAvatar
+          changeData={changeData}
+          text="Subir foto del proyecto"
+          idImages="image"
+        />
+        <GetAvatar
+          changeData={changeData}
+          text="Subir foto de la autora"
+          idImages="photo"
+        />
 
         <button className="button--large">Guardar proyecto</button>
       </fieldset>

@@ -4,18 +4,22 @@ import Preview from "../Create/Preview.jsx";
 import Form from "../Create/Form.jsx";
 import { Link } from "react-router";
 
+const initalData = {
+  name: "",
+  slogan: "",
+  technologies: "",
+  repo: "",
+  demo: "",
+  desc: "",
+  autor: "",
+  job: "",
+  image: null, // Imagen de la Autora
+  photo: null, // Imagen del proyecto}
+};
+
 function CreateProjects() {
   const [data, setData] = useState({
-    name: "",
-    slogan: "",
-    technologies: "",
-    repo: "",
-    demo: "",
-    desc: "",
-    autor: "",
-    job: "",
-    image: null, // Imagen de la Autora
-    photo: null, // Imagen del proyecto
+    ...(JSON.parse(localStorage.getItem("formData")) || initalData),
   });
 
   function changeData(property, value) {
