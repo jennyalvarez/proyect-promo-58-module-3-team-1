@@ -1,11 +1,13 @@
 // Fichero src/main.jsx
-  import React from 'react'
-  import ReactDOM from 'react-dom/client'
-  import App from './components/App.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./components/App.jsx";
+import { HashRouter } from "react-router";
 
-
-  ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <HashRouter>
       <App />
-    </React.StrictMode>,
-  )
+    </HashRouter>
+  </React.StrictMode>
+);
