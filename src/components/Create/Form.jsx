@@ -58,6 +58,7 @@ function Form({ changeData, data }) {
           value={data.technologies}
         />
         <textarea
+          onChange={handleData}
           className="addForm__input"
           type="text"
           name="desc"
