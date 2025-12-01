@@ -20,24 +20,42 @@ function Form({ changeData, data }) {
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
         <InputGroupText
+          onChange={handleData}
           name="name"
           id="name"
           placeholder="Nombre del proyecto"
+          value={data.name}
         />
-        <InputGroupText name="slogan" id="slogan" placeholder="Slogan" />
+        <InputGroupText
+          onChange={handleData}
+          name="slogan"
+          id="slogan"
+          placeholder="Slogan"
+          value={data.slogan}
+        />
         <div className="addForm__2col">
           <InputGroupText
+            onChange={handleData}
             type="url"
             name="repo"
             id="repo"
             placeholder="Repositorio"
+            value={data.repo}
           />
-          <InputGroupText type="url" name="demo" id="demo" placeholder="Demo" />
+          <InputGroupText
+            onChange={handleData}
+            type="url"
+            name="demo"
+            id="demo"
+            placeholder="Demo"
+          />
         </div>
         <InputGroupText
+          onChange={handleData}
           name="technologies"
           id="technologies"
           placeholder="Tecnologías"
+          value={data.technologies}
         />
         <textarea
           className="addForm__input"
@@ -46,13 +64,26 @@ function Form({ changeData, data }) {
           id="desc"
           placeholder="Descripción"
           rows="5"
+          value={data.desc}
         ></textarea>
       </fieldset>
 
       <fieldset className="addForm__group">
         <legend className="addForm__title">Cuéntanos sobre la autora</legend>
-        <InputGroupText name="autor" id="autor" placeholder="Nombre" />
-        <InputGroupText name="job" id="job" placeholder="Trabajo" />
+        <InputGroupText
+          onChange={handleData}
+          name="autor"
+          id="autor"
+          placeholder="Nombre"
+          value={data.author}
+        />
+        <InputGroupText
+          onChange={handleData}
+          name="job"
+          id="job"
+          placeholder="Trabajo"
+          value={data.job}
+        />
       </fieldset>
 
       <fieldset className="addForm__group--upload">

@@ -1,4 +1,11 @@
-function InputGroupText({name, id, placeholder, type="text"}) {
+function InputGroupText({
+  name,
+  id,
+  placeholder,
+  type = "text",
+  value,
+  onChange,
+}) {
   return (
     <input
       className="addForm__input"
@@ -6,6 +13,8 @@ function InputGroupText({name, id, placeholder, type="text"}) {
       name={name}
       id={id}
       placeholder={placeholder}
+      value={value}
+      onChange={onChange}
     />
   );
 }
