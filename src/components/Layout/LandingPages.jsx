@@ -6,7 +6,7 @@ function LandingPages() {
     <Hero>
       <>
         <Link className="button--link" to="./create">
-          Ver proyectos
+          Nuevo Proyecto
         </Link>
       </>
     </Hero>
