@@ -1,6 +1,6 @@
 // Fichero src/components/App.jsx
 import "../styles/App.scss";
-import { useState } from "react";
+
 import Header from "./Layout/Header.jsx";
 import Footer from "./Layout/Footer.jsx";
 import Hero from "./Layout/Hero.jsx";
@@ -15,7 +15,7 @@ function App() {
     <div className="container">
       <Header />
       <Routes>
-        <Route path="/" element={<LandingPages />} />
+        <Route path="/" element={<LandingPages/>} />
         <Route path="/create" element={<CreateProjects />} />
       </Routes>
       <Footer />
